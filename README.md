@@ -209,3 +209,4 @@ RESTful principles, the API will be scalable, maintainable, and reliable. The sa
 requests and responses provided above illustrate how each endpoint will function and
 what kind of data it will accept or return. With this API design, StudyNotion will be able to
 provide a smooth user experience while ensuring security and stability.
+
