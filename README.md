@@ -1,6 +1,7 @@
-# StudyNotion Online Education Platform (MERN App) [Website Link](https://studynotion-frontend.vercel.app/)
+# StudyNotion Online Education Platform (MERN Stack)
 
-## THIS IS MY SECOND REPO WHICH CONTAINS BOTH FRONTEND AND BACKEND (for backend focused repo check - https://github.com/AritraRock/StudyNotion-Backend)
+🔗 **Live Site:** [Visit StudyNotion](#)  
+🔗 **Backend Repo (Standalone):** [StudyNotion Backend](https://github.com/AritraRock/StudyNotion-Backend)
 
 ![Main Page](images/mainpage.png)
 
