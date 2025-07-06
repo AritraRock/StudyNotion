@@ -1,44 +1,52 @@
 import { useEffect, useState } from "react"
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
 import logo from "../../assets/Logo/Logo-Full-Light.png"
 import { NavbarLinks } from "../../data/navbar-links"
-import { apiConnector } from "../../services/apiConnector"
-import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import ProfileDropdown from "../core/Auth/ProfileDropdown"
+import { fetchCatalogs } from "../../slices/catalogSlice"
 
 function Navbar() {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
   const { totalItems } = useSelector((state) => state.cart)
   const location = useLocation()
+  const dispatch = useDispatch()
 
-  const [subLinks, setSubLinks] = useState([])
+  // const [subLinks, setSubLinks] = useState([])
   const [loading, setLoading] = useState(false)
+  const catalogs = useSelector((state)=>state.catalog.catalogs)
+  const subLinks=catalogs
+
 
   useEffect(() => {
-    ;(async () => {
-      setLoading(true)
-      try {
-        const res = await apiConnector("GET", categories.CATEGORIES_API)
-        const receivedData = res?.data?.data
-        if (Array.isArray(receivedData)) {
-          setSubLinks(receivedData)
-        } else {
-          setSubLinks([])
-          console.warn("Unexpected subLinks format:", receivedData)
-        }
-      } catch (error) {
-        console.log("Could not fetch Categories.", error)
-        setSubLinks([])
-      }
-      setLoading(false)
-    })()
-  }, [])
+     if (catalogs.length === 0) {
+    dispatch(fetchCatalogs())
+  }
+  }, [catalogs.length])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     setLoading(true)
+  //     try {
+  //       const res = await apiConnector("GET", categories.CATEGORIES_API)
+  //       const receivedData = res?.data?.data
+  //       if (Array.isArray(receivedData)) {
+  //         setSubLinks(receivedData)
+  //       } else {
+  //         setSubLinks([])
+  //         console.warn("Unexpected subLinks format:", receivedData)
+  //       }
+  //     } catch (error) {
+  //       console.log("Could not fetch Categories.", error)
+  //       setSubLinks([])
+  //     }
+  //     setLoading(false)
+  //   })()
+  // }, [])
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname)
