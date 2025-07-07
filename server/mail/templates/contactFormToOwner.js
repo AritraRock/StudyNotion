@@ -74,8 +74,8 @@ exports.contactOwnerEmail = (
 
   <body>
       <div class="container">
-          <a href="https://studynotion-edtech-project.vercel.app"><img class="logo"
-                  src="https://i.ibb.co/7Xyj3PC/logo.png" alt="StudyNotion Logo"></a>
+          <a href="https://study-notion-frontend-nine-wine.vercel.app/"><img class="logo"
+                  src="https://study-notion-frontend-nine-wine.vercel.app/logo.png" alt="StudyNotion Logo"></a>
           <div class="message">${firstname} ${lastname} submitted a Contact Us Form</div>
           <div class="body">
               <p>Dear Owner,</p>
