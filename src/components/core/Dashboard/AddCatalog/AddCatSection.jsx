@@ -19,13 +19,28 @@ export default function AddCatSection() {
   const dispatch = useDispatch()
   const submitHandler = async (data) => {
     setLoading(true)
-    console.log("Catalog data submitted:", data)
-    console.log("Token:", token)
-    const result = await addCatalogDetails(data, token)
-    console.log(result)
-    if(result.success){
-      dispatch(addToCatalog(result.data))
-      reset()
+    // console.log("Catalog data submitted:", data)
+    // console.log("Token:", token)
+    const slugifiedName = data.name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/gi, "")     // remove special characters
+    .replace(/\s+/g, "-")             // replace spaces with hyphens
+
+    const payload = {
+      ...data,
+      name: slugifiedName,
+    }
+    
+    try {
+      const result = await addCatalogDetails(payload, token)
+      console.log(result)
+      if(result.success){
+        dispatch(addToCatalog(result.data))
+        reset()
+      }
+    } catch (error) {
+      console.error("Error adding catalog:", error)
     }
     // Add your catalog creation logic here (API call, etc.)
     setLoading(false)
