@@ -24,10 +24,8 @@ function Navbar() {
 
 
   useEffect(() => {
-     if (catalogs.length === 0) {
     dispatch(fetchCatalogs())
-  }
-  }, [catalogs.length])
+  }, [])
   // useEffect(() => {
   //   ;(async () => {
   //     setLoading(true)
