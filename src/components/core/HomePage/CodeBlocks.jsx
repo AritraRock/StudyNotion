@@ -8,7 +8,7 @@ const CodeBlocks = ({
   heading,
   subheading,
   ctabtn1,
-  ctabtn2,
+  // ctabtn2,
   codeblock,
   backgroundGradient,
   codeColor,
@@ -34,9 +34,9 @@ const CodeBlocks = ({
               <FaArrowRight />
             </div>
           </CTAButton>
-          <CTAButton active={ctabtn2.active} linkto={ctabtn2.link}>
+          {/* <CTAButton active={ctabtn2.active} linkto={ctabtn2.link}>
             {ctabtn2.btnText}
-          </CTAButton>
+          </CTAButton> */}
         </div>
       </div>
 
