@@ -126,13 +126,12 @@ function Home() {
         </div>
 
         {/* Explore Section */}
-        <ExploreMore />
+        {/* <ExploreMore /> */}
       </div>
 
       {/* Section 2 */}
       <div className="bg-pure-greys-5 text-richblack-700">
-        <div className="homepage_bg h-[320px]">
-          {/* Explore Full Catagory Section */}
+        {/* <div className="homepage_bg h-[320px]">
           <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
             <div className="lg:h-[150px]"></div>
             <div className="flex flex-row gap-7 text-white lg:mt-8">
@@ -147,7 +146,7 @@ function Home() {
               </CTAButton>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 ">
           {/* Job that is in Demand - Section 1 */}
