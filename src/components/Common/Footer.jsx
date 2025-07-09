@@ -6,9 +6,9 @@ import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="bg-richblack-800">
-      <div className="w-11/12 max-w-maxContent mx-auto py-10 text-richblack-400">
+      <div className="w-11/12 max-w-maxContent mx-auto py-5 text-richblack-400">
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm">
+        <div className="flex flex-col md:flex-row gap-2 justify-between items-center text-sm">
           <div className="flex gap-4 text-lg">
               <Link to="https://www.linkedin.com/in/aritra-ray-bb2b03223/">
                 <FaLinkedin />
@@ -20,10 +20,12 @@ const Footer = () => {
                 <FaInstagram />
               </Link>
             </div>
-          <p className="text-center">
-            Made by Aritra Ray © 2024 StudyNotion
-          </p>
-          <div className="flex gap-4 mt-2 md:mt-0">
+            <div>
+              <p className="text-center">
+                Made by Aritra Ray © 2024 StudyNotion
+              </p>
+            </div>
+          <div className="flex gap-4 md:mt-0">
             <Link to="/">Privacy</Link>
             <Link to="/">Terms</Link>
           </div>
