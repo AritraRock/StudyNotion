@@ -19,6 +19,7 @@ function Navbar() {
 
   // const [subLinks, setSubLinks] = useState([])
   const [loading, setLoading] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const catalogs = useSelector((state)=>state.catalog.catalogs)
   const subLinks=catalogs
 
@@ -51,15 +52,16 @@ function Navbar() {
   }
 
   return (
+    // <div className="sticky">
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
+      className={`relative flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
         location.pathname !== "/" ? "bg-richblack-800" : ""
       } transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" className="ml-4 lg:ml-0"/>
         </Link>
 
         {/* Navigation links */}
@@ -152,11 +154,98 @@ function Navbar() {
           {token && <ProfileDropdown />}
         </div>
 
-        <button className="mr-4 md:hidden">
-          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-        </button>
       </div>
+      {/* This is for mobile view otherwise hidden */}
+      <button
+          className="mr-4 md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <AiOutlineMenu
+            fontSize={24}
+            fill="#AFB2BF"
+            className={`transition-transform duration-300 ${
+              isMobileMenuOpen ? "rotate-90" : ""
+            }`}
+          />
+        </button>
+
+        {isMobileMenuOpen && (
+          <div className="flex items-center justify-center absolute top-14 z-50 w-full h-screen bg-richblack-800 px-6 py-4 text-richblack-25 transition-all duration-300 md:hidden">
+            <ul className="flex flex-col gap-y-4 justify-between items-center w-full">
+              {NavbarLinks.map((link, index) => (
+                <li key={index}>
+                  {link.title === "Catalog" ? (
+                    <details className="group [&_summary::-webkit-details-marker]:hidden">
+                      <summary className="flex cursor-pointer items-center justify-between gap-1">
+                        Catalog
+                        <BsChevronDown className="transition-transform group-open:rotate-180" />
+                      </summary>
+                      <div className="ml-4 mt-2 flex flex-col gap-y-1">
+                        {Array.isArray(subLinks) &&
+                        subLinks.length > 0 &&
+                        !loading ? (
+                          subLinks
+                            .filter(
+                              (subLink) =>
+                                Array.isArray(subLink?.courses) &&
+                                subLink.courses.length > 0
+                            )
+                            .map((subLink, i) => (
+                              <Link
+                                key={i}
+                                to={`/catalog/${subLink.name
+                                  .split(" ")
+                                  .join("-")
+                                  .toLowerCase()}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {subLink.name}
+                              </Link>
+                            ))
+                        ) : (
+                          <p>No Courses</p>
+                        )}
+                      </div>
+                    </details>
+                  ) : (
+                    <Link
+                      to={link?.path}
+                      className={`block py-1 ${
+                        matchRoute(link?.path) ? "text-yellow-25" : ""
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.title}
+                    </Link>
+                  )}
+                </li>
+              ))}
+
+              {/* Login / Signup / Profile */}
+              {!token ? (
+                <>
+                  <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                    <button className="rounded-[8px] border border-richblack-700 bg-richblack-700 px-[12px] py-[8px] text-richblack-100">
+                      Log In
+                    </button>
+                  </Link>
+                  <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>
+                    <button className="rounded-[8px] border border-richblack-700 bg-richblack-700 px-[12px] py-[8px] text-richblack-100">
+                      Sign Up
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <div className="mt-4">
+                  <ProfileDropdown />
+                </div>
+              )}
+            </ul>
+          </div>
+        )}
+
     </div>
+    // </div>
   )
 }
 
