@@ -7,7 +7,9 @@ import { sidebarLinks } from "../../../data/dashboard-links"
 import { logout } from "../../../services/operations/authAPI"
 import ConfirmationModal from "../../Common/ConfirmationModal"
 import SidebarLink from "./SidebarLink"
-
+import { Link } from "react-router-dom"
+import logo from "../../../assets/Logo/Logo-Full-Light.png"
+import { FaAngleDoubleRight } from "react-icons/fa";
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(
     (state) => state.profile
@@ -17,6 +19,7 @@ export default function Sidebar() {
   const navigate = useNavigate()
   // to keep track of confirmation modal
   const [confirmationModal, setConfirmationModal] = useState(null)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   if (profileLoading || authLoading) {
     return (
@@ -27,9 +30,15 @@ export default function Sidebar() {
   }
 
   return (
-    <>
-      <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
-        <div className="flex flex-col">
+    <div className="relative">
+
+      <div
+        className={`${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-[90%]"
+        } relative left-0 z-10 flex h-screen w-screen lg:w-[220px] flex-col border-r border-richblack-700 bg-richblack-800 py-10 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:h-[calc(100vh-3.5rem)] sm:justify-center md:justify-start sm:items-center md:items-start`}
+      >
+        <div
+          className={`flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-full" : "w-0"} md:w-full`}>
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null
             return (
@@ -62,8 +71,23 @@ export default function Sidebar() {
             </div>
           </button>
         </div>
+
+        <div className="flex flex-row md:hidden absolute top-3/4 justify-between items-center w-full mx-3">
+            <Link to="/">
+               <img src={logo} alt="Logo" width={160} height={32} loading="lazy" className=""/>
+             </Link>
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className={`p-3 bg-richblack-700 rounded-full transition-transform duration-300 ${
+              isSidebarOpen ? "rotate-180" : ""
+            }`}>
+            {/* You can replace this with a custom icon */}
+            {/* <span className="text-white text-lg">➤</span> */}
+            <FaAngleDoubleRight/>
+          </button>
+        </div>
       </div>
       {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
-    </>
+    </div>
   )
 }
