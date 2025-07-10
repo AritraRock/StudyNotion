@@ -34,11 +34,11 @@ export default function Sidebar() {
 
       <div
         className={`${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-[90%]"
-        } relative left-0 z-10 flex h-screen w-screen lg:w-[220px] flex-col border-r border-richblack-700 bg-richblack-800 py-10 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:h-[calc(100vh-3.5rem)] sm:justify-center md:justify-start sm:items-center md:items-start`}
+          isSidebarOpen ? "w-screen" : "w-1/12"
+        } relative left-0 z-10 flex h-screen md:w-[220px] flex-col border-r border-richblack-700 bg-richblack-800 py-10 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:h-[calc(100vh-3.5rem)] sm:justify-center md:justify-start sm:items-center md:items-start`}
       >
         <div
-          className={`flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-full" : "w-0"} md:w-full`}>
+          className={`flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-full" : "w-0 overflow-hidden"} md:w-full`}>
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null
             return (
@@ -48,7 +48,7 @@ export default function Sidebar() {
         </div>
         {/* <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" /> */}
 
-        <div className={`flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-full" : "w-0"} md:w-full`}>
+        <div className={`flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-full" : "w-0 overflow-hidden"} md:w-full`}>
           <SidebarLink
             link={{ name: "Settings", path: "/dashboard/settings" }}
             iconName="VscSettingsGear"
@@ -72,8 +72,7 @@ export default function Sidebar() {
             </div>
           </button>
         </div>
-
-        <div className="flex flex-row md:hidden absolute top-3/4 justify-between items-center w-full mx-3">
+        <div className="flex flex-row lg:hidden absolute top-3/4 justify-between items-center w-full mx-3">
             <Link to="/">
                <img src={logo} alt="Logo" width={160} height={32} loading="lazy" className=""/>
              </Link>
