@@ -9,7 +9,7 @@ import { NavbarLinks } from "../../data/navbar-links"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import ProfileDropdown from "../core/Auth/ProfileDropdown"
 import { fetchCatalogs } from "../../slices/catalogSlice"
-
+import { setMobileMenuOpen } from "../../slices/mobileUiSlice";
 function Navbar() {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
@@ -18,15 +18,15 @@ function Navbar() {
   const dispatch = useDispatch()
 
   // const [subLinks, setSubLinks] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [loading] = useState(false)
+  const isMobileMenuOpen= useSelector((state)=>state.mobileUi.isMobileMenuOpen)
   const catalogs = useSelector((state)=>state.catalog.catalogs)
   const subLinks=catalogs
 
 
   useEffect(() => {
     dispatch(fetchCatalogs())
-  }, [])
+  }, [dispatch])
   // useEffect(() => {
   //   ;(async () => {
   //     setLoading(true)
@@ -158,7 +158,7 @@ function Navbar() {
       {/* This is for mobile view otherwise hidden */}
       <button
           className="mr-4 md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => dispatch(setMobileMenuOpen(!isMobileMenuOpen))}
         >
           <AiOutlineMenu
             fontSize={24}
@@ -197,7 +197,7 @@ function Navbar() {
                                   .split(" ")
                                   .join("-")
                                   .toLowerCase()}`}
-                                onClick={() => setIsMobileMenuOpen(false)}
+                                onClick={() => dispatch(setMobileMenuOpen(false))}
                               >
                                 {subLink.name}
                               </Link>
@@ -213,7 +213,7 @@ function Navbar() {
                       className={`block py-1 ${
                         matchRoute(link?.path) ? "text-yellow-25" : ""
                       }`}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => dispatch(setMobileMenuOpen(false))}
                     >
                       {link.title}
                     </Link>
@@ -224,12 +224,12 @@ function Navbar() {
               {/* Login / Signup / Profile */}
               {!token ? (
                 <>
-                  <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link to="/login" onClick={() => dispatch(setMobileMenuOpen(false))}>
                     <button className="rounded-[8px] border border-richblack-700 bg-richblack-700 px-[12px] py-[8px] text-richblack-100">
                       Log In
                     </button>
                   </Link>
-                  <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link to="/signup" onClick={() => dispatch(setMobileMenuOpen(false))}>
                     <button className="rounded-[8px] border border-richblack-700 bg-richblack-700 px-[12px] py-[8px] text-richblack-100">
                       Sign Up
                     </button>
