@@ -46,8 +46,9 @@ export default function Sidebar() {
             )
           })}
         </div>
-        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
-        <div className="flex flex-col">
+        {/* <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" /> */}
+
+        <div className={`flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-full" : "w-0"} md:w-full`}>
           <SidebarLink
             link={{ name: "Settings", path: "/dashboard/settings" }}
             iconName="VscSettingsGear"
