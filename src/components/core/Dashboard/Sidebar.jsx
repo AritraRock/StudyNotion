@@ -72,7 +72,7 @@ export default function Sidebar() {
             </div>
           </button>
         </div>
-        <div className="flex flex-row lg:hidden absolute top-3/4 justify-between items-center w-full mx-3">
+        <div className="flex flex-row md:hidden absolute top-3/4 justify-between items-center w-full px-3">
             <Link to="/">
                <img src={logo} alt="Logo" width={160} height={32} loading="lazy" className=""/>
              </Link>
