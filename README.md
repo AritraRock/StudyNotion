@@ -126,19 +126,6 @@ Follows **RESTful architecture**, returns **JSON**, and supports standard HTTP m
 | DELETE | `/api/courses/:id`          | Delete a course                     |
 | POST   | `/api/courses/:id/rate`     | Rate a course                       |
 
-### 🧾 Sample:
-
-```json
-GET /api/courses
-
-[
-  {
-    "id": "abc123",
-    "title": "React for Beginners",
-    "rating": 4.5
-  }
-]
-```
 ## 🚀 Deployment Details
 
 | Service         | Usage                |
