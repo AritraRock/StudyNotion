@@ -157,5 +157,3 @@ These tools ensure:
 
 Feel free to **fork** the repository and open **Pull Requests (PRs)**.  
 Suggestions, bug reports, and improvements are always welcome!
-
----
