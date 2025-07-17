@@ -140,11 +140,12 @@ GET /api/courses
 ]
 ```
 ## 🚀 Deployment Details
-Service	Usage
-Vercel	Frontend
-Render/Railway	Backend
-MongoDB Atlas	Database
-Cloudinary	Media Storage
+| Service	| Usage |
+|--------|------------------------------|-------------------------------------|
+| Vercel	| Frontend |
+- Render/Railway	Backend
+- MongoDB Atlas	Database
+- Cloudinary	Media Storage
 Razorpay	Payment Gateway
 
 These tools ensure:
@@ -175,11 +176,6 @@ Mobile App (React Native / Flutter)	🔥 High
 AI-powered course recommendations	🚀 High
 AR/VR-based immersive learning	🧪 Medium
 
-## 📷 Architecture Diagram
-[Insert an image here or link to your design]
-You can add this in your GitHub repo as /assets/architecture.png and embed like below:
-
-![Architecture](./assets/architecture.png)
 ## 💬 Contributing
 Feel free to fork the project and submit PRs. Feedback and improvements are welcome!
 
