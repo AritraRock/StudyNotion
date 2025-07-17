@@ -138,3 +138,50 @@ GET /api/courses
     "rating": 4.5
   }
 ]
+```
+## 🚀 Deployment Details
+Service	Usage
+Vercel	Frontend
+Render/Railway	Backend
+MongoDB Atlas	Database
+Cloudinary	Media Storage
+Razorpay	Payment Gateway
+
+These tools ensure:
+
+Scalability
+
+Availability
+
+Free-tier Hosting (with UptimeRobot to prevent sleep)
+
+## 🧪 Testing Strategy
+Manual Testing: UI flow, API responses
+
+Token validation for role-based routes
+
+Unit/Integration testing planned with:
+
+Jest (backend)
+
+React Testing Library (frontend)
+
+## 🌱 Future Enhancements
+Feature	Priority
+Personalized learning paths	🔥 High
+Gamification (badges, leaderboards)	⚡ Medium
+Peer-to-peer & group discussions	⚡ Medium
+Mobile App (React Native / Flutter)	🔥 High
+AI-powered course recommendations	🚀 High
+AR/VR-based immersive learning	🧪 Medium
+
+## 📷 Architecture Diagram
+[Insert an image here or link to your design]
+You can add this in your GitHub repo as /assets/architecture.png and embed like below:
+
+![Architecture](./assets/architecture.png)
+## 💬 Contributing
+Feel free to fork the project and submit PRs. Feedback and improvements are welcome!
+
+## 📜 License
+This project is licensed under the MIT License.
