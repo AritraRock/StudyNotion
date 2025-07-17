@@ -1,6 +1,4 @@
 # 📘 StudyNotion – Online Education Platform (MERN Stack)
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Tech](https://img.shields.io/badge/stack-MERN-informational)
 ![Status](https://img.shields.io/badge/status-Production-green)
 
@@ -161,8 +159,3 @@ Feel free to **fork** the repository and open **Pull Requests (PRs)**.
 Suggestions, bug reports, and improvements are always welcome!
 
 ---
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
