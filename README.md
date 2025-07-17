@@ -140,44 +140,54 @@ GET /api/courses
 ]
 ```
 ## 🚀 Deployment Details
-| Service	| Usage |
-|--------|------------------------------|-------------------------------------|
-| Vercel	| Frontend |
-- Render/Railway	Backend
-- MongoDB Atlas	Database
-- Cloudinary	Media Storage
-Razorpay	Payment Gateway
+
+| Service         | Usage                |
+|-----------------|----------------------|
+| Vercel          | Frontend Hosting     |
+| Render / Railway| Backend Hosting      |
+| MongoDB Atlas   | Database             |
+| Cloudinary      | Media Storage        |
+| Razorpay        | Payment Gateway      |
 
 These tools ensure:
 
-Scalability
+- 🌐 **Scalability**
+- 💡 **Availability**
+- 🆓 **Free-tier Hosting** (kept awake via **UptimeRobot** pings)
 
-Availability
-
-Free-tier Hosting (with UptimeRobot to prevent sleep)
+---
 
 ## 🧪 Testing Strategy
-Manual Testing: UI flow, API responses
 
-Token validation for role-based routes
+- ✅ **Manual Testing**: End-to-end flow, UI behavior, API response validation  
+- 🔐 **Role-based Routes**: Token-based access control testing  
+- 🧪 **Planned Automated Testing**:
+  - **Backend**: Jest
+  - **Frontend**: React Testing Library
 
-Unit/Integration testing planned with:
-
-Jest (backend)
-
-React Testing Library (frontend)
+---
 
 ## 🌱 Future Enhancements
-Feature	Priority
-Personalized learning paths	🔥 High
-Gamification (badges, leaderboards)	⚡ Medium
-Peer-to-peer & group discussions	⚡ Medium
-Mobile App (React Native / Flutter)	🔥 High
-AI-powered course recommendations	🚀 High
-AR/VR-based immersive learning	🧪 Medium
+
+| Feature                                 | Priority |
+|-----------------------------------------|----------|
+| Personalized Learning Paths             | 🔥 High  |
+| Gamification (Badges, Leaderboards)     | ⚡ Medium |
+| Peer-to-Peer & Group Discussions        | ⚡ Medium |
+| Mobile App (React Native / Flutter)     | 🔥 High  |
+| AI-Powered Course Recommendations       | 🚀 High  |
+| AR/VR-Based Immersive Learning          | 🧪 Medium |
+
+---
 
 ## 💬 Contributing
-Feel free to fork the project and submit PRs. Feedback and improvements are welcome!
+
+Feel free to **fork** the repository and open **Pull Requests (PRs)**.  
+Suggestions, bug reports, and improvements are always welcome!
+
+---
 
 ## 📜 License
-This project is licensed under the MIT License.
+
+This project is licensed under the **MIT License**.
+
