@@ -10,7 +10,7 @@
 
 ## 🔗 Live Links
 
-- **🌐 Live Site**: [Visit StudyNotion](#https://study-notion-frontend-nine-wine.vercel.app/)
+- **🌐 Live Site**: [Visit StudyNotion](https://study-notion-frontend-nine-wine.vercel.app/)
 
 ---
 
