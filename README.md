@@ -144,7 +144,7 @@ GET /api/courses
 | Service         | Usage                |
 |-----------------|----------------------|
 | Vercel          | Frontend Hosting     |
-| Render / Railway| Backend Hosting      |
+| Render          | Backend Hosting      |
 | MongoDB Atlas   | Database             |
 | Cloudinary      | Media Storage        |
 | Razorpay        | Payment Gateway      |
@@ -153,17 +153,7 @@ These tools ensure:
 
 - 🌐 **Scalability**
 - 💡 **Availability**
-- 🆓 **Free-tier Hosting** (kept awake via **UptimeRobot** pings)
-
----
-
-## 🧪 Testing Strategy
-
-- ✅ **Manual Testing**: End-to-end flow, UI behavior, API response validation  
-- 🔐 **Role-based Routes**: Token-based access control testing  
-- 🧪 **Planned Automated Testing**:
-  - **Backend**: Jest
-  - **Frontend**: React Testing Library
+- 🆓 **Free-tier Hosting** (kept awake via **UptimeRobot** and **cron-Job** pings)
 
 ---
 
@@ -172,11 +162,9 @@ These tools ensure:
 | Feature                                 | Priority |
 |-----------------------------------------|----------|
 | Personalized Learning Paths             | 🔥 High  |
+| AI-Powered Course Recommendations       | 🚀 High  |
 | Gamification (Badges, Leaderboards)     | ⚡ Medium |
 | Peer-to-Peer & Group Discussions        | ⚡ Medium |
-| Mobile App (React Native / Flutter)     | 🔥 High  |
-| AI-Powered Course Recommendations       | 🚀 High  |
-| AR/VR-Based Immersive Learning          | 🧪 Medium |
 
 ---
 
